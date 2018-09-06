@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+ <script type="text/javascript"></script>
+</head>
+<script>
+$(document).ready(function()
+{
+    $("#button").click(function ()
+    {
+        $.ajax({
+        type:'GET',
+
+        url:"/content/testpage.demoselector.json",
+            headers: {
+                Accept:"application/json; charset=utf-8",
+                "Content-Type" : "application/json; charset=utf-8"
+            },
+
+                success: function(result)
+        {
+
+                     var json = jQuery.parseJSON(result); 
+                    var jsondata=result;
+                     $("#div1").html(jsondata);
+                    console.log(json);
+
+      },
+      failure: function(result)
+      {
+      console.log("error");
+      }
+        } 
+        );
+    }
+    );
+});
+
+</script>
+</html>
