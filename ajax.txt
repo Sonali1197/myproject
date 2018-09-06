@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<script>
+$(document).ready(function()
+{
+    $("button").click(function()
+    {
+        $.ajax({url: "testpage.demoselector.json",
+                success: function(result)
+        {
+            $("#div1").load("testpage.demoselector.json", function(responseTxt, statusTxt, xhr)
+            {
+        if(statusTxt == "success")
+            console.log("json loaded successfully!");
+        if(statusTxt == "error")
+            console.log("Error: " + xhr.status + ": " + xhr.statusText);
+            });
+        }
+        } 
+        );
+    }
+    );
+});
+</script>
+fsehb
+</html>
